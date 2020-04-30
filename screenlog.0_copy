@@ -1,0 +1,56 @@
+Jitting Chamfer 3D
+Loaded JIT 3D CUDA chamfer distance
+Comparing fov images of lyft2kitti dataset:
+Time needed to compare fov pointclouds (lyft2kitti: 1481, KITTI: 1122): 103.03415647536666 min
+NNA RESULT: tensor(0.9735)
+
+Jitting Chamfer 3D
+Loaded JIT 3D CUDA chamfer distance
+Comparing fov images of audi2kitti dataset:
+Traceback (most recent call last):
+  File "compare_pointclouds.py", line 238, in <module>
+    main(opt.dataset, opt.type)
+  File "compare_pointclouds.py", line 200, in main
+    pointcloud_tensor[0, :, :] = torch.from_numpy(np.swapaxes(pointcloud, 0, 1))  # also swap axes of numpy array to fit tensor's shape
+RuntimeError: Trying to resize storage that is not resizable at /opt/conda/conda-bld/pytorch_1544176307774/work/aten/src/TH/THStorageFunctions.cpp:70
+Jitting Chamfer 3D
+Loaded JIT 3D CUDA chamfer distance
+Comparing bev images of lyft2kitti dataset:
+^CTraceback (most recent call last):
+  File "compare_pointclouds.py", line 238, in <module>
+    main(opt.dataset, opt.type)
+  File "compare_pointclouds.py", line 227, in main
+    nna_result = compare_pointcloud_domains(pc_domain1_tensor_list, pc_domain2_tensor_list)
+  File "compare_pointclouds.py", line 163, in compare_pointcloud_domains
+    return NNA(a, b, chamfer_dist)  # output ist dann ein Wert theoretisch zwischen 0 und 1, praktisch aber zwischen 0.5 und 1. Wobei näher an 0.5 besser ist. Gibt im grunde an, wie viel prozent werden ihrer eigenen Gruppe wieder zugeordnet.
+  File "/home/user/work/master_thesis/code/compare_pointclouds/one_nearest_neighbor_acc.py", line 25, in NNA
+    metric_total = metric(SG, SR)
+  File "/home/user/anaconda/envs/compare_pointclouds/lib/python3.7/site-packages/torch/nn/modules/module.py", line 489, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/user/work/master_thesis/code/compare_pointclouds/dist_chamfer_3D.py", line 110, in forward
+    output[i,j] = (torch.mean(dist1, 1)) + (torch.mean(dist2, 1))
+KeyboardInterrupt
+^C^CJitting Chamfer 3D
+Loaded JIT 3D CUDA chamfer distance
+Comparing fov images of audi2kitti dataset:
+Traceback (most recent call last):
+  File "compare_pointclouds.py", line 238, in <module>
+    main(opt.dataset, opt.type)
+  File "compare_pointclouds.py", line 200, in main
+    pointcloud_tensor[0, :, :] = torch.from_numpy(np.swapaxes(pointcloud, 0, 1))  # also swap axes of numpy array to fit tensor's shape
+RuntimeError: Trying to resize storage that is not resizable at /opt/conda/conda-bld/pytorch_1544176307774/work/aten/src/TH/THStorageFunctions.cpp:70
+Jitting Chamfer 3D
+Loaded JIT 3D CUDA chamfer distance
+Comparing bev images of lyft2kitti dataset:
+Time needed to compare bev pointclouds (lyft2kitti: 1481, KITTI: 1122): 502.80396777540005 min
+NNA RESULT: tensor(0.9962)
+
+Jitting Chamfer 3D
+Loaded JIT 3D CUDA chamfer distance
+Comparing bev images of audi2kitti dataset:
+Traceback (most recent call last):
+  File "compare_pointclouds.py", line 238, in <module>
+    main(opt.dataset, opt.type)
+  File "compare_pointclouds.py", line 200, in main
+    pointcloud_tensor[0, :, :] = torch.from_numpy(np.swapaxes(pointcloud, 0, 1))  # also swap axes of numpy array to fit tensor's shape
+RuntimeError: Trying to resize storage that is not resizable at /opt/conda/conda-bld/pytorch_1544176307774/work/aten/src/TH/THStorageFunctions.cpp:70

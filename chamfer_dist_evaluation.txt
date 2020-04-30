@@ -1,0 +1,56 @@
+Jitting Chamfer 3D
+Loaded JIT 3D CUDA chamfer distance
+Comparing fov images of kitti dataset:
+Time needed to compare fov pointclouds (kitti: 1122, KITTI: 1122): 70.1136764575 min
+NNA RESULT: tensor(0.)
+
+Jitting Chamfer 3D
+Loaded JIT 3D CUDA chamfer distance
+Comparing fov images of lyft dataset:
+Time needed to compare fov pointclouds (lyft: 1481, KITTI: 1122): 100.27631834993333 min
+NNA RESULT: tensor(1.)
+
+Jitting Chamfer 3D
+Loaded JIT 3D CUDA chamfer distance
+Comparing fov images of lyft2kitti dataset:
+Time needed to compare fov pointclouds (lyft2kitti: 1481, KITTI: 1122): 103.88825714521666 min
+NNA RESULT: tensor(0.9616)
+
+Jitting Chamfer 3D
+Loaded JIT 3D CUDA chamfer distance
+Comparing fov images of audi dataset:
+Time needed to compare fov pointclouds (audi: 1481, KITTI: 1122): 73.13846486473334 min
+NNA RESULT: tensor(1.)
+
+Jitting Chamfer 3D
+Loaded JIT 3D CUDA chamfer distance
+Comparing bev images of kitti dataset:
+Time needed to compare bev pointclouds (kitti: 1122, KITTI: 1122): 216.45386613748332 min
+NNA RESULT: tensor(0.)
+
+Jitting Chamfer 3D
+Loaded JIT 3D CUDA chamfer distance
+Comparing bev images of lyft dataset:
+Time needed to compare bev pointclouds (lyft: 1481, KITTI: 1122): 207.73619376903335 min
+NNA RESULT: tensor(0.9301)
+
+Jitting Chamfer 3D
+Loaded JIT 3D CUDA chamfer distance
+Comparing bev images of audi dataset:
+Time needed to compare bev pointclouds (audi: 1481, KITTI: 1122): 86.38751224986666 min
+NNA RESULT: tensor(0.9996)
+
+
+NEW:
+
+Jitting Chamfer 3D
+Loaded JIT 3D CUDA chamfer distance
+Comparing fov images of lyft2kitti dataset:
+Time needed to compare fov pointclouds (lyft2kitti: 1481, KITTI: 1122): 103.03415647536666 min
+NNA RESULT: tensor(0.9735)
+
+Jitting Chamfer 3D
+Loaded JIT 3D CUDA chamfer distance
+Comparing bev images of lyft2kitti dataset:
+Time needed to compare bev pointclouds (lyft2kitti: 1481, KITTI: 1122): 502.80396777540005 min
+NNA RESULT: tensor(0.9962)

@@ -1,0 +1,58 @@
+Jitting Chamfer 3D
+Loaded JIT 3D CUDA chamfer distance
+Comparing fov images of audi dataset:
+Time needed to compare fov pointclouds (audi: 1481, KITTI: 1122): 81.70072846486666 min
+NNA RESULT: tensor(0.9992)
+
+Jitting Chamfer 3D
+Loaded JIT 3D CUDA chamfer distance
+Comparing fov images of audi2kitti dataset:
+Traceback (most recent call last):
+  File "compare_pointclouds.py", line 259, in <module>
+    main(opt.dataset, opt.type)
+  File "compare_pointclouds.py", line 235, in main
+    img_kitti = imageio.imread(image_path_kitti)
+  File "/home/user/anaconda/envs/compare_pointclouds/lib/python3.7/site-packages/imageio/core/functions.py", line 265, in imread
+    reader = read(uri, format, "i", **kwargs)
+  File "/home/user/anaconda/envs/compare_pointclouds/lib/python3.7/site-packages/imageio/core/functions.py", line 172, in get_reader
+    request = Request(uri, "r" + mode, **kwargs)
+  File "/home/user/anaconda/envs/compare_pointclouds/lib/python3.7/site-packages/imageio/core/request.py", line 121, in __init__
+    self._parse_uri(uri)
+  File "/home/user/anaconda/envs/compare_pointclouds/lib/python3.7/site-packages/imageio/core/request.py", line 257, in _parse_uri
+    raise FileNotFoundError("No such file: '%s'" % fn)
+FileNotFoundError: No such file: '/home/user/work/master_thesis/code/yolov3/kitti/images_cropped/006359.npy.png'
+Jitting Chamfer 3D
+Loaded JIT 3D CUDA chamfer distance
+Comparing bev images of audi dataset:
+Time needed to compare bev pointclouds (audi: 1481, KITTI: 1122): 146.018561073 min
+NNA RESULT: tensor(0.9996)
+
+Jitting Chamfer 3D
+Loaded JIT 3D CUDA chamfer distance
+Comparing bev images of audi2kitti dataset:
+Traceback (most recent call last):
+  File "compare_pointclouds.py", line 259, in <module>
+    main(opt.dataset, opt.type)
+  File "compare_pointclouds.py", line 235, in main
+    img_kitti = imageio.imread(image_path_kitti)
+  File "/home/user/anaconda/envs/compare_pointclouds/lib/python3.7/site-packages/imageio/core/functions.py", line 265, in imread
+    reader = read(uri, format, "i", **kwargs)
+  File "/home/user/anaconda/envs/compare_pointclouds/lib/python3.7/site-packages/imageio/core/functions.py", line 172, in get_reader
+    request = Request(uri, "r" + mode, **kwargs)
+  File "/home/user/anaconda/envs/compare_pointclouds/lib/python3.7/site-packages/imageio/core/request.py", line 121, in __init__
+    self._parse_uri(uri)
+  File "/home/user/anaconda/envs/compare_pointclouds/lib/python3.7/site-packages/imageio/core/request.py", line 257, in _parse_uri
+    raise FileNotFoundError("No such file: '%s'" % fn)
+FileNotFoundError: No such file: '/home/user/work/master_thesis/datasets/bev_images/kitti/training/006359.npy.png'
+Jitting Chamfer 3D
+Loaded JIT 3D CUDA chamfer distance
+Comparing fov images of audi2kitti dataset:
+Time needed to compare fov pointclouds (audi2kitti: 1481, KITTI: 1122): 78.42881451863333 min
+NNA RESULT: tensor(0.9877)
+
+Jitting Chamfer 3D
+Loaded JIT 3D CUDA chamfer distance
+Comparing bev images of audi2kitti dataset:
+Time needed to compare bev pointclouds (audi2kitti: 1481, KITTI: 1122): 185.84719942715 min
+NNA RESULT: tensor(1.)
+
