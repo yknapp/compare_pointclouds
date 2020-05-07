@@ -12,7 +12,7 @@ unit_model_dir="/home/user/work/master_thesis/code/UNIT/outputs/$unit_model_fold
 output_file="$unit_model_dir/$unit_model_folder.chamfer_dist.txt"
 
 "" > $output_file
-for checkpoint in $unit_model_dir/checkpoints/"gen_"*".pt"
+for checkpoint in $unit_model_dir/checkpoints/"gen_"*"0000.pt"
 do
   # flush temp BEV folder
   rm $temp_bev_path/*
