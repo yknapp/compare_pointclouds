@@ -171,7 +171,7 @@ def compare_pointcloud_domains(a, b):
     return NNA(a, b, chamfer_dist)  # output ist dann ein Wert theoretisch zwischen 0 und 1, praktisch aber zwischen 0.5 und 1. Wobei näher an 0.5 besser ist. Gibt im grunde an, wie viel prozent werden ihrer eigenen Gruppe wieder zugeordnet.
 
 
-def main(dataset, type):
+def main(dataset, type, optional_output_path):
     #dataset = 'kitti'  # kitti, lyft, audi, lyft2kitti2, audi2kitti
     #type = 'fov'  # bev, fov
     print("Comparing %s images of %s dataset:" % (type, dataset))
@@ -179,6 +179,10 @@ def main(dataset, type):
     images_list = get_images_list(file_list_path)
     num_points_list = []
     pc_domain1_tensor_list, pc_domain2_tensor_list = [], []
+
+    # if parameter 'optional_output_path' is set, then overwrite default path of input images
+    if optional_output_path is not None:
+        images_dir = optional_output_path
 
     # exit program, if CUDA isn't available since chamfer distance function requires this
     if torch.cuda.is_available():
@@ -197,7 +201,7 @@ def main(dataset, type):
         #print("IMAGE_PATH: ", image_path)
         img = imageio.imread(image_path)
 
-        # transform FOV image to pointcloud
+        # transform image to pointcloud
         pointcloud = transformation(img)
 
         # if pointcloud has no points, then skip to next
@@ -208,9 +212,9 @@ def main(dataset, type):
             # transform pointcloud to tensor and add it to domain1 list
             #print("TYPE: ", pointcloud.dtype)
             #print("SIZE: ", pointcloud.shape)
-            if pointcloud.dtype != np.float64:
-                print("DIFFERENT DTYPE: ", pointcloud.dtype)
-                exit()
+            #if pointcloud.dtype != np.float64:
+            #    print("DIFFERENT DTYPE: ", pointcloud.dtype)
+            #   exit()
             pointcloud_tensor = torch.empty(1, pointcloud.shape[1], 3)#, dtype=torch.float64)
             pointcloud_tensor[0, :, :] = torch.from_numpy(np.swapaxes(pointcloud, 0, 1))  # also swap axes of numpy array to fit tensor's shape
             pointcloud_tensor = pointcloud_tensor.to(device)  # transform tensor to cuda tensor
@@ -255,5 +259,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--dataset', type=str, default=None, help="Dataset of validation pointclouds, which should be compared with KITTI validation pointclouds ('kitti', 'lyft', 'lyft2kitti', 'audi', 'audi2kitti'")
     parser.add_argument('--type', type=str, default=None, help="'bev' or 'fov'")
+    parser.add_argument('--optional_output_path', type=str, default=None, help="optional alternative path for input images")
     opt = parser.parse_args()
-    main(opt.dataset, opt.type)
+    print(opt)
+    main(opt.dataset, opt.type, opt.optional_output_path)
